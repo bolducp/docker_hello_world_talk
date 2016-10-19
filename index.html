@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>Docker in 7 Minutes</title>
 
 		<link rel="stylesheet" href="reveal.js-3.3.0/css/reveal.css">
 		<link rel="stylesheet" href="reveal.js-3.3.0/css/theme/black.css">
@@ -26,20 +26,124 @@
 				<section>
 					<h1>Docker in 7 minutes</h1>
 					<h4>Key concepts and getting started</h4>
-					<img id="docker_logo" alt="the Docker logo" src="https://www.docker.com/sites/default/files/moby.svg"/>
+					<img id="docker_img" alt="the Docker logo" src="https://www.docker.com/sites/default/files/moby.svg"/>
 					<p>
 						<small>21 October 2016  |  Def Method company meeting  | Lightning talk by <a href="http://www.paigebolduc.com">Paige Bolduc</a></small>
 					</p>
 				</section>
 
+				<section>
+					<h3 id="slide_2_header">What problem is Docker trying to solve?</h3>
+					<img id="docker_img" src="images/build_ship_run.png"/>
+					<img id="docker_img" src="images/solution.png"/>
+				</section>
 
-				<section>Slide 2</section>
+				<section>
+					<h3>Containers versus Virtual Machines</h3>
+					<img id="containers_vms" alt="containers vs. VMs diagram" src="https://regmedia.co.uk/2015/01/07/docker_vs_vmware.jpg"/>
+					<p>
+						<small>Image source:  <a href="http://www.theregister.co.uk/2015/01/07/asigra_dockerises_cloud_backup/">http://www.theregister.co.uk/2015/01/07/asigra_dockerises_cloud_backup/</a></small>
+					</p>
+				</section>
+				<section>
+					<section id="fragments">
+						<h2>Key Docker Terminology</h2>
+						<p class="fragment highlight-blue">Docker Machine</p>
+						<p class="fragment highlight-blue">Docker Engine</p>
+						<p class="fragment highlight-blue">Docker Daemon</p>
+						<p class="fragment highlight-blue">Docker Client</p>
+						<p class="fragment highlight-blue">Container</p>
+						<p class="fragment highlight-blue">Image</p>
+						<p class="fragment highlight-blue">Registry</p>
+					</section>
+
+					<section>
+						<h2>The Docker Platform</h2>
+						<h3>Docker Machine & Docker Engine</h3>
+						<a href="https://docs.docker.com/machine/overview/#/whats-the-difference-between-docker-engine-and-docker-machine">						
+							<img src="images/engine.png" alt="docker engine quote"></img>
+						</a>
+						<img id="docker_machine" src="images/machine.png" alt="docker machine quote"></img>
+						<p>Useful links:&nbsp; 
+							<a href="https://docs.docker.com/engine/understanding-docker/#/what-is-the-docker-platform">Docker platform overview</a>,&nbsp; 
+							<a href="https://docs.docker.com/machine/overview/#/whats-the-difference-between-docker-engine-and-docker-machine">machine vs. engine</a>
+						</p>
+					</section>
+
+					<section>
+						<h3>Docker Daemon & Docker Client</h3>
+						<img id="docker_engine" src="images/engine_pieces.png" alt="docker engine pieces quote"></img>
+						<a href="https://docs.docker.com/engine/understanding-docker/#/what-is-docker-engine">
+							<img id="docker_engine" src="images/client_daemon.png" alt="docker machine quote"></img>
+						</a>
+					</section>
+
+					<section>
+						<h3>Docker Daemon & Docker Client</h3>
+						<a href="https://docs.docker.com/engine/understanding-docker/#/what-is-dockers-architecture">
+							<img id="docker_architecture" src="images/architecture.png" alt="docker architecture imgage"></img>
+						</a>
+						<p>Useful links:&nbsp; 
+							<a href="https://docs.docker.com/engine/understanding-docker/#the-docker-daemon">Docker enginge docs</a>,&nbsp; 
+							<a href="https://prakhar.me/docker-curriculum/#terminology">Terminology- Section 1.2</a>
+						</p>
+					</section>
+
+					<section>
+						<h3>Containers, Images, & Registries</h3>
+						<p>Sample Dockerfile</p>
+						<a href="https://github.com/bolducp/Express_Angular2_Twitter_App/blob/master/Dockerfile">
+							<pre><code class="hljs" data-trim contenteditable>
+
+FROM node:argon
+
+# Create app directory
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+
+# Install app dependencies
+COPY package.json /usr/src/app/
+RUN npm install
+
+# Bundle app source
+COPY . /usr/src/app
+
+EXPOSE 8080
+CMD [ "npm", "start" ]
+								</code></pre>
+						</a>
+						<p>Useful links:&nbsp; 
+							1.) <a href="https://docs.docker.com/engine/tutorials/dockerizing/">Docker docs: "Hello, World!" for Containers</a> <br>
+							2.) <a href="https://docs.docker.com/engine/understanding-docker/#how-does-a-docker-image-work">Docker docs: How does an image work?</a> <br>
+							3.) <a href="https://docs.docker.com/registry/">Docker registry</a>
+						</p>
+					</section>
+				</section>
+
+				<section>
+					<h2>Getting Started</h2>
+					<div id="getting_started">
+						<p>Download: &nbsp;<a href="https://www.docker.com/products/docker#/mac">Docker for Mac</a> </p>
+						<p>Docker Docs: &nbsp;<a href="https://docs.docker.com/#/typical-docker-platform-workflow">Typical Docker platform workflow</a> </p>
+						<p>Docker tutorial: &nbsp;<a href="https://prakhar.me/docker-curriculum/">Docker for Beginners by Prakhar Srivastav</a> </p>
+						<p>Browse Docker images: &nbsp;<a href="https://hub.docker.com/">Docker Hub</a></p>
+					</div>
+				</section>
+
+				<section>
+					<h2>Other Useful Resources</h2>
+						<a href="https://www.amazon.com/Linux-Bible-Christopher-Negus/dp/1118999878/ref=pd_sbs_14_t_0?_encoding=UTF8&psc=1&refRID=8ARQ5V459K7TKXXP14E8"> 
+							<img id="linux_cover" src="http://media.wiley.com/product_data/coverImage300/78/11189998/1118999878.jpg" alt="the linux bible cover image" />
+						</a>
+						<a href="http://www.linfo.org/"><p>The Linux Information Project</p></a>
+						<a href="https://aws.amazon.com/devops/what-is-devops/"><p>AWS's "What is DevOps?" (bit of a rabbit hole)</p></a>
+						<a href="https://theagileadmin.com/what-is-devops/"><p>the agile admin's DevOps article</p></a>
+				</section>
 			</div>
 		</div>
 
 		<script src="reveal.js-3.3.0/lib/js/head.min.js"></script>
 		<script src="reveal.js-3.3.0/js/reveal.js"></script>
-
 		<script>
 			// More info https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({

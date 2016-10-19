@@ -1,3 +1,31 @@
-#docker_logo {
+#docker_img {
     max-height: 400px;
+}
+
+#containers_vms {
+     height: 500px;
+}
+
+#slide_2_header {
+    margin: 5px -15px 25px -15px;
+}
+
+#getting_started {
+    text-align: left;
+}
+
+#linux_cover {
+    max-height: 200px;
+}
+
+#docker_machine{
+    max-height: 200px;
+}
+
+#docker_engine {
+    max-height: 340px;
+}
+
+#docker_architecture {
+    max-height: 410px;
 }
